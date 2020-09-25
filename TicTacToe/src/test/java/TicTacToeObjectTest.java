@@ -17,6 +17,7 @@ public class TicTacToeObjectTest {
 
     @Test
     public void checkThatClassInitiazationIsSuccessfulTest() throws Exception {
+        //creating game object
         Game game = new Game();
 
     }
