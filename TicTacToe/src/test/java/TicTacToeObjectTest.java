@@ -1,3 +1,4 @@
+import TicTacToe.Controller;
 import TicTacToe.Game;
 import TicTacToe.Space;
 import org.junit.Test;
@@ -13,14 +14,16 @@ import static org.junit.Assert.assertEquals;
 
 public class TicTacToeObjectTest {
 
+
     @Test
     public void checkThatClassInitiazationIsSuccessfulTest() throws Exception {
-        Game game = new Game(new ArrayList<Space>());
+        Game game = new Game();
+
     }
 
     @Test
     public void verifyThatGameArrayIsLengthNine() {
-        Game game = new Game(new ArrayList<Space>());
+        Game game = new Game();
 
         game.instantiateSpaces();
 
@@ -38,7 +41,7 @@ public class TicTacToeObjectTest {
 
     @Test
     public void initiateSpaceToZeroTest() {
-        Game game = new Game(new ArrayList<Space>());
+        Game game = new Game();
 
         game.instantiateSpaces();
 
@@ -47,7 +50,7 @@ public class TicTacToeObjectTest {
 
     @Test
     public void checkForWinTest() {
-        Game game = new Game(new ArrayList<Space>());
+        Game game = new Game();
 
         game.instantiateSpaces();
 
@@ -63,7 +66,7 @@ public class TicTacToeObjectTest {
 
     @Test
     public void checkForWinDiagonalTest() {
-        Game game = new Game(new ArrayList<Space>());
+        Game game = new Game();
 
         game.instantiateSpaces();
 
@@ -79,7 +82,7 @@ public class TicTacToeObjectTest {
 
     @Test
     public void userHasntWonYetTest() {
-        Game game = new Game(new ArrayList<Space>());
+        Game game = new Game();
 
         game.instantiateSpaces();
 
@@ -92,5 +95,16 @@ public class TicTacToeObjectTest {
         assertEquals(false, didUserWin);
 
     }
+
+    @Test
+    public void startControllerLogicTest() {
+        Controller c = new Controller();
+
+        Game g = c.startGame();
+
+        assertEquals("Kyle", g.getPlayerOne().getPlayerName());
+
+    }
+
 
 }

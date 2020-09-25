@@ -1,21 +1,41 @@
 package TicTacToe;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
 
 
+    public void main(String[] args) {
+        System.out.println("Hello World!");
+    }
+
     private List<Space> gameBoxes = new ArrayList<Space>();
 
-    public Game(List<Space> gameBoxes) {
-        this.gameBoxes = gameBoxes;
+    public Game() {
+    }
+
+    public static void main() {
     }
 
     public List<Space> getGameBoxes() {
         return gameBoxes;
     }
+
+    private Player playerOne;
+    private Player playerTwo;
+
+    public Player getPlayerOne() {
+        return playerOne;
+    }
+
+    public void setPlayerOne(Player playerOne) { this.playerOne = playerOne; }
+
+    public Player getPlayerTwo() {
+        return playerTwo;
+    }
+
+    public void setPlayerTwo(Player playerTwo) { this.playerTwo = playerTwo; }
 
     public void setGameBoxes(List<Space> gameBoxes) {
         this.gameBoxes = gameBoxes;
@@ -65,4 +85,6 @@ public class Game {
         return didWin;
 
     }
+
+
 }
