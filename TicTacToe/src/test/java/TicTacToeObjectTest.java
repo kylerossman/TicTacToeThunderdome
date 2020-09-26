@@ -16,7 +16,7 @@ public class TicTacToeObjectTest {
 
 
     @Test
-    public void checkThatClassInitiazationIsSuccessfulTest() throws Exception {
+    public void checkThatClassInitializationIsSuccessfulTest() throws Exception {
         //creating game object
         Game game = new Game();
 
@@ -98,7 +98,7 @@ public class TicTacToeObjectTest {
     }
 
     @Test
-    public void startControllerLogicTest() {
+    public void startControllerLogicGetPlayerOneTest() {
         Controller c = new Controller();
 
         Game g = c.startGame();
@@ -107,5 +107,34 @@ public class TicTacToeObjectTest {
 
     }
 
+    @Test
+    public void startControllerLogicGetPlayerTwoTest() {
+        Controller c = new Controller();
+
+        Game g = c.startGame();
+
+        assertEquals("The Chainsmokers", g.getPlayerTwo().getPlayerName());
+
+    }
+
+    @Test
+    public void startControllerInitiateTestSetTurnTest() {
+        Controller c = new Controller();
+        int squareToSelect = 4;
+        Game g = c.startGame();
+
+        g.instantiateSpaces();
+
+        g.getPlayerOne().setTurn(true);
+        g.getPlayerTwo().setTurn(false);
+
+        if (!g.didUserWin(1)) {
+            g.takeTurn(squareToSelect, g.getPlayerOne());
+            g.getPlayerOne().endTurn();
+        }
+
+        assertEquals(g.getGameBoxes().get(squareToSelect).getTeam(), 0);
+
+    }
 
 }

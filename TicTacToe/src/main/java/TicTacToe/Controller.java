@@ -7,8 +7,8 @@ import java.util.List;
 public class Controller {
     public Game startGame() {
 
-        Player playerOne = new Player("Kyle");
-        Player playerTwo = new Player("The Chainsmokers");
+        Player playerOne = new Player("Kyle", 0);
+        Player playerTwo = new Player("The Chainsmokers",  1);
 
 
 

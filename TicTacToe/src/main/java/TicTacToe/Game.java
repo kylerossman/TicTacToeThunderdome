@@ -87,4 +87,7 @@ public class Game {
     }
 
 
+    public void takeTurn(int squareToSelect, Player player) {
+        this.getGameBoxes().get(squareToSelect).setTeam(player.getIndex());
+    }
 }

@@ -7,9 +7,19 @@ public class Player {
     private String playerName;
     private boolean isTurn;
     private boolean turn;
+    private int index;
 
-    public Player(String playerName) {
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
+    public Player(String playerName, int index) {
         this.playerName = playerName;
+        this.index = index;
     }
 
     public int getWins() {
@@ -50,5 +60,9 @@ public class Player {
 
     public boolean getTurn() {
         return turn;
+    }
+
+    public void endTurn() {
+        this.setTurn(false);
     }
 }
