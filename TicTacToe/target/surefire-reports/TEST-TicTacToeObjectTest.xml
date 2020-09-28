@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="10" failures="0" name="TicTacToeObjectTest" time="0.003" errors="0" skipped="0">
+<testsuite tests="10" failures="0" name="TicTacToeObjectTest" time="0.005" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/jre/lib"/>
@@ -64,7 +64,7 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="TicTacToeObjectTest" name="startControllerLogicGetPlayerOneTest" time="0.003"/>
+  <testcase classname="TicTacToeObjectTest" name="startControllerLogicGetPlayerOneTest" time="0.004"/>
   <testcase classname="TicTacToeObjectTest" name="startControllerLogicGetPlayerTwoTest" time="0"/>
   <testcase classname="TicTacToeObjectTest" name="assignSpaceToTeamOneTest" time="0"/>
   <testcase classname="TicTacToeObjectTest" name="checkForWinTest" time="0"/>
@@ -72,6 +72,6 @@
   <testcase classname="TicTacToeObjectTest" name="startControllerInitiateTestSetTurnTest" time="0"/>
   <testcase classname="TicTacToeObjectTest" name="checkThatClassInitializationIsSuccessfulTest" time="0"/>
   <testcase classname="TicTacToeObjectTest" name="userHasntWonYetTest" time="0"/>
-  <testcase classname="TicTacToeObjectTest" name="initiateSpaceToZeroTest" time="0"/>
+  <testcase classname="TicTacToeObjectTest" name="initiateSpaceToZeroTest" time="0.001"/>
   <testcase classname="TicTacToeObjectTest" name="checkForWinDiagonalTest" time="0"/>
 </testsuite>
