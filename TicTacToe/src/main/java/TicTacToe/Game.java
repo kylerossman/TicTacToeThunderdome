@@ -2,6 +2,7 @@ package TicTacToe;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Game {
 
@@ -89,5 +90,12 @@ public class Game {
 
     public void takeTurn(int squareToSelect, Player player) {
         this.getGameBoxes().get(squareToSelect).setTeam(player.getIndex());
+    }
+
+    public  String askUserForPlayerName(String message) {
+
+        Scanner sc= new Scanner(System.in); //System.in is a standard input stream.
+        System.out.print(message + "");
+        return sc.nextLine(); //reads string.
     }
 }

@@ -1,5 +1,7 @@
 package TicTacToe;
 
+import java.util.Scanner;
+
 public class Player {
     private int wins;
     private int losses;
@@ -65,4 +67,7 @@ public class Player {
     public void endTurn() {
         this.setTurn(false);
     }
+
+
+
 }

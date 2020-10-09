@@ -7,12 +7,20 @@ import java.util.List;
 public class Controller {
     public Game startGame() {
 
-        Player playerOne = new Player("Kyle", 0);
-        Player playerTwo = new Player("The Chainsmokers",  1);
+
+
+
 
 
 
         Game g = new Game();
+
+        String playerOneName =  "Kyle" ;//g.askUserForPlayerName("Player One: ");
+        String playerTwoName = "The Chainsmokers" ;//g.askUserForPlayerName("Player One: ");
+
+        Player playerOne = new Player(playerOneName, 0);
+        Player playerTwo = new Player(playerTwoName,  1);
+
         g.setPlayerOne(playerOne);
         g.setPlayerTwo(playerTwo);
 
@@ -22,7 +30,8 @@ public class Controller {
     }
 
     public static void main(String [ ] args) {
-
+        Controller gameController = new Controller();
+        gameController.startGame();
     }
 
 
