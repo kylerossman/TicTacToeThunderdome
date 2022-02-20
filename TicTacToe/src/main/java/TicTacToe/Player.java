@@ -7,7 +7,6 @@ public class Player {
     private int losses;
     private boolean isVictoriousYet;
     private String playerName;
-    private boolean isTurn;
     private boolean turn;
     private int index;
 
@@ -22,6 +21,7 @@ public class Player {
     public Player(String playerName, int index) {
         this.playerName = playerName;
         this.index = index;
+        this.isVictoriousYet = false;
     }
 
     public int getWins() {
@@ -67,7 +67,5 @@ public class Player {
     public void endTurn() {
         this.setTurn(false);
     }
-
-
 
 }

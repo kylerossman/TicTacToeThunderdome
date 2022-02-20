@@ -5,34 +5,37 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Controller {
-    public Game startGame() {
+    public Game setUpGame() {
 
+        Game game = new Game();
 
-
-
-
-
-
-        Game g = new Game();
-
-        String playerOneName =  "Kyle" ;//g.askUserForPlayerName("Player One: ");
-        String playerTwoName = "The Chainsmokers" ;//g.askUserForPlayerName("Player One: ");
-
+        String playerOneName =  game.askUserForPlayerName("Player One: ");
+        String playerTwoName = game.askUserForPlayerName("Player Two: ");
         Player playerOne = new Player(playerOneName, 0);
         Player playerTwo = new Player(playerTwoName,  1);
 
-        g.setPlayerOne(playerOne);
-        g.setPlayerTwo(playerTwo);
+        game.setPlayerOne(playerOne);
+        game.setPlayerTwo(playerTwo);
 
-        //g.instantiateSpaces();
+        game.instantiateSpaces();
 
-        return g;
+        return game;
     }
 
     public static void main(String [ ] args) {
         Controller gameController = new Controller();
-        gameController.startGame();
+        Game game = gameController.setUpGame();
+        try {
+            game.play();
+        } catch (Exception e) {
+            System.out.println(e.getStackTrace());
+        }
+        if (game.getPlayerOne().isVictoriousYet() || game.getPlayerTwo().isVictoriousYet()) {
+            System.out.print("THE WINNER IS: ");
+            System.out.print(game.getPlayerOne().isVictoriousYet() ? game.getPlayerOne().getPlayerName() : game.getPlayerTwo().getPlayerName());
+        } else {
+            System.out.println("The game ended in a tie :(");
+        }
+
     }
-
-
 }

@@ -101,8 +101,7 @@ public class TicTacToeObjectTest {
     public void startControllerLogicGetPlayerOneTest() {
         Controller c = new Controller();
 
-        Game g = c.startGame();
-
+        Game g = c.setUpGame();
         assertEquals("Kyle", g.getPlayerOne().getPlayerName());
 
     }
@@ -121,7 +120,7 @@ public class TicTacToeObjectTest {
     public void startControllerInitiateTestSetTurnTest() {
         Controller c = new Controller();
         int squareToSelect = 4;
-        Game g = c.startGame();
+        Game g = c.setUpGame();
 
         g.instantiateSpaces();
 

@@ -23,7 +23,7 @@ public class Game {
         return gameBoxes;
     }
 
-    private Player playerOne;
+    private TicTacToe.Player playerOne;
     private Player playerTwo;
 
     public Player getPlayerOne() {
@@ -97,5 +97,95 @@ public class Game {
         Scanner sc= new Scanner(System.in); //System.in is a standard input stream.
         System.out.print(message + "");
         return sc.nextLine(); //reads string.
+    }
+
+    public void play() throws Exception {
+        this.getPlayerOne().setTurn(true);
+        while (!this.getPlayerOne().isVictoriousYet() && !this.getPlayerTwo().isVictoriousYet() && !gameOver())  {
+            Player currentPlayer = this.getNextPlayerUp();
+            if (currentPlayer == null) {
+                throw new Exception("Error: No player ready for turn");
+            }
+
+            processTurn(currentPlayer);
+            this.getNextPlayerUp().setVictoriousYet(didUserWin(currentPlayer.getIndex()));
+            changeTurn(currentPlayer);
+            displayGrid();
+
+        }
+
+    }
+
+    private boolean gameOver() {
+        List<Space> boxes = this.getGameBoxes();
+        for (int index = 0; index < boxes.size(); index++) {
+            if (boxes.get(index).getTeam() == -1) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void displayGrid() {
+        List<Space> grid = this.getGameBoxes();
+        System.out.println(Space.getSymbol(grid.get(0))
+                + "|" + Space.getSymbol(grid.get(1)) + "|" + Space.getSymbol(grid.get(2)));
+        System.out.println("-----");
+        System.out.println(Space.getSymbol(grid.get(3))
+                + "|" + Space.getSymbol(grid.get(4)) + "|" + Space.getSymbol(grid.get(5)));
+        System.out.println("-----");
+        System.out.println(Space.getSymbol(grid.get(6))
+                + "|" + Space.getSymbol(grid.get(7)) + "|" + Space.getSymbol(grid.get(8)));
+    }
+
+
+    private void changeTurn(Player currentPlayer) {
+        if (this.getPlayerOne() == currentPlayer) {
+            this.getPlayerOne().setTurn(false);
+            this.getPlayerTwo().setTurn(true);
+        } else {
+            this.getPlayerOne().setTurn(true);
+            this.getPlayerTwo().setTurn(false);
+        }
+    }
+
+    private void processTurn(Player currentPlayer) {
+
+        boolean choiceValidated = false;
+        while (!choiceValidated) {
+            //get users input for which square they want
+            String selection = getTurnInput(currentPlayer);
+            try {
+                int selectionIndex = Integer.parseInt(selection);
+                Space selectedSpace = this.getGameBoxes().get(selectionIndex-1);
+                if (selectedSpace.getTeam() == -1) {
+                    //Let's set it as their value
+                    selectedSpace.setTeam(currentPlayer.getIndex());
+                    choiceValidated = true;
+                } else {
+                    System.out.println("Error: That space has already been selected.");
+                    //TODO list valid spaces
+                }
+            } catch (NumberFormatException | IndexOutOfBoundsException e) {
+                System.out.println("Error: Input not a number between 1-9.");
+            }
+        }
+    }
+
+    private String getTurnInput(Player currentPlayer) {
+        Scanner sc= new Scanner(System.in); //System.in is a standard input stream.
+        ;
+        System.out.print(currentPlayer.getPlayerName() + " select the box you are choosing: ");
+        return sc.nextLine(); //reads string.
+    }
+
+    private Player getNextPlayerUp() {
+        if (this.getPlayerOne().getTurn()) {
+            return this.getPlayerOne();
+        } else if (this.getPlayerTwo().getTurn()) {
+            return this.getPlayerTwo();
+        } else {
+            return null;
+        }
     }
 }
